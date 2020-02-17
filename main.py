@@ -18,7 +18,7 @@ config = False
 
 # parse the commandline arguments
 parser = argparse.ArgumentParser(
-    description='FFT tool for the portable70 spectrum analyzer firmware.')
+    description='Tool for the portable70 spectrum analyzer firmware.')
 parser.add_argument('--device', type=str, dest='device',
                     action='store', default=device)
 parser.add_argument('--baud', type=int, dest='baud',
