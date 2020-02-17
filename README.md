@@ -40,3 +40,9 @@ To debug the pulse detection and RSSI measurement use the following command:
 ```sh
 python3 main.py --config --rssi
 ```
+
+## Hardware
+
+Due to a hardware bug, after installing a battery, the following pins of the protections MOSFET must be shorted for a short period of time.
+
+![PCB with PINs to short](.github/pcb.jpg)
