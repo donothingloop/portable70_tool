@@ -11,15 +11,19 @@ class API:
         self.cbs[filter] = cb
 
     def handle(self, buf):
-        buf = bytearray(buf)
+        try:
+            buf = bytearray(buf)
 
-        frm = portable70_pb2.Frame()
-        frm.ParseFromString(buf)
+            frm = portable70_pb2.Frame()
+            frm.ParseFromString(buf)
 
-        # print(frm)
-        msgt = frm.WhichOneof("data")
-        if msgt in self.cbs:
-            self.cbs[msgt](frm)
+            # print(frm)
+            msgt = frm.WhichOneof("data")
+            if msgt in self.cbs:
+                self.cbs[msgt](frm)
+        except Exception:
+            print("Parsing failed.")
+            pass
 
     def config(self, config):
         upd = portable70_pb2.Update()
